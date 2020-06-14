@@ -167,7 +167,6 @@ function OnMarkerClick (e) {
     window.longitude.textContent = 'Longitude : '+data.longitude.toFixed(3)+'°';
     window.population.textContent = 'Population : '+data.population+' inhabitants';
     window.continent.textContent = 'Continent : '+data.continent;
-    window.domain_name.textContent = 'Domain name : '+data.cctld;
     window.area.textContent = 'Area : '+data.area;
     window.area.insertAdjacentHTML('beforeend', ' km<sup>2</sup>');
     window.wp.href = 'https://en.wikipedia.org/wiki/'+data.wp;
@@ -190,64 +189,6 @@ function OnMarkerClick (e) {
   xhr.send();
 };
 
-function capital_distance(a, b){
-  document.getElementById("distance_text").removeAttribute('hidden');
-  var xhr1 = new XMLHttpRequest();
-  var xhr2 = new XMLHttpRequest();
-  var coord1;
-  var coord2;
-  var notwritten = true;
-  xhr1.onload = function() {
-    var data1 = JSON.parse(this.responseText);
-    coord1 = [data1.longitude, data1.latitude];
-    if (coord1!=undefined && coord2!=undefined && notwritten){
-      notwritten = false;
-      var distance = coords_distance(coord1, coord2).toFixed(0);
-      window.distance_km.textContent = distance;
-    };
-  };
-  xhr2.onload = function() {
-    var data2 = JSON.parse(this.responseText);
-    coord2 = [data2.longitude, data2.latitude];
-    if (coord1!=undefined && coord2!=undefined && notwritten){
-      notwritten = false;
-      var distance = coords_distance(coord1, coord2).toFixed(0);
-      window.distance_km.textContent = distance;
-      if (distance==0){
-        window.same_cap.innerHTML = 'You could have done it yourself!';
-      }else{
-        window.same_cap.innerHTML = '';
-      };
-    };
-  };
-  var idnum1 = a.selectedOptions[0].id;
-  var idnum2 = b.selectedOptions[0].id;
-  xhr1.open('GET','/description/'+idnum1,true);
-  xhr2.open('GET','/description/'+idnum2,true);
-  xhr1.send();
-  xhr2.send();
-};
-
-
-function coords_distance(coord1, coord2){
-  var lat1 = coord1[1];
-  var lon1 = coord1[0];
-  var lat2 = coord2[1];
-  var lon2 = coord2[0];
-  var R = 6371; // km
-  var dLat = toRad(lat2-lat1);
-  var dLon = toRad(lon2-lon1);
-  var lat1 = toRad(lat1);
-  var lat2 = toRad(lat2);
-
-  var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  var d = R * c;
-  return d;
-};
-function toRad(Value){
-  return Value * Math.PI / 180;
-};
 
 
 
