@@ -5,11 +5,14 @@ Created on Thu Jun 11 10:39:24 2020
 @author: mylaa
 """
 
+import sqlite3
+import re
+
 import http.server
 import socketserver
 from urllib.parse import urlparse, parse_qs, unquote
 import json
-import sqlite3
+
 
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -18,7 +21,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
   static_dir = '/client'
 
   # version du serveur
-  server_version = 'TD3_mieux-insolites.py/0.1'
+  server_version = 'TD3-lieux-insolites.py/0.1'
 
   # on surcharge la méthode qui traite les requêtes GET
   def do_GET(self):
@@ -60,7 +63,6 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
   # on envoie le document statique demandé
   def send_static(self):
-
     # on modifie le chemin d'accès en insérant le répertoire préfixe
     self.path = self.static_dir + self.path
     # on appelle la méthode parent (do_GET ou do_HEAD)
@@ -121,6 +123,16 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     print('info_path =',self.path_info)
     print('body =',length,ctype,self.body)
     print('params =', self.params)
+    
+  def send_json_country(self, country) :
+    r = self.db_get_country(country)
+    if r == None:
+      self.send_error(404,'Country not found')
+    else :
+      data = {k:r[k] for k in r.keys()}
+      json_data = json.dumps(data, indent=4)
+      headers = [('Content-Type','application/json')]
+      self.send(json_data,headers)
 
   def data_loc(self) :
       c = conn.cursor()
@@ -135,7 +147,8 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
           name = i['name']
           continent = i['continent']
           capital = i['capital']
-          data.append({'wp': wp, 'lat': lat, 'lon': lon, 'name': name, 'continent': continent, 'capital': capital})
+          area = i['area']
+          data.append({'wp': wp, 'lat': lat, 'lon': lon, 'name': name, 'continent': continent, 'capital': capital, 'area':area})
       return data
 
   def db_get_country(self,country):
