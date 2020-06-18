@@ -1,0 +1,46 @@
+/* fond de page */
+body {
+  background-color: rgba(50,205,50,0.8);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: black;
+  height: 100vh;
+/* fond de page */
+body {
+  background-color: rgba(50,205,50,1);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: white;
+  height: 100vh;
+  margin: 0;
+  /* pour éviter l'ascenseur */
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+/* bandeau de titre */
+h1 { 
+  color: white;
+  border: 10px solid rgb(217, 249, 150);
+  background-color: rgb(122, 226, 114);
+  margin-top: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.7em;
+}
+
+/* contenu de la page */
+body > * {   padding-left: 10px; }
+
+/* polices de caractères */
+body { font-family: arial, sans-serif; }
+
+/* positionnement des champs */
+label { display: block; }
+label span { display: inline-block; width: 5em; height: 1.5em; }
+
+a.delete:hover {
+  color: red;
+}
+#map { height: 500px; width: 800px; }
+
