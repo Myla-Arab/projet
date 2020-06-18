@@ -17,12 +17,13 @@ On a accès à la carte des pays en suivant les étapes suivantes :
   (ou alors donner le code server avec le fichier pays.sqlite déjà créé et les modifications faites à la main)
   - lancer le code server_europe.py 
   - ouvrir le navigateur et entrer "localhost:8080"
-  - cliquer sur le fichier index.html
  
  On peut alors observer la carte du monde, regroupant différentes informations concernant les pays d'Europe :
   - le nom du Pays
   - le nom de sa capitale
   - les coorddonnées géographiques de cette capitale
   - la surface du pays
+  - la monnaie du pays
+  - la population
   
- (ajouter la population, le drapeau et la monnaie)
+ (ajouter le drapeau)
