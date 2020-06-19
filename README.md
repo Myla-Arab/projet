@@ -8,20 +8,24 @@ Huan Luo
 Gabriel Salada Costa
 Lingyu Wang
 
+
 Description des différents fichiers :
 
-Le code data_europe permet de créer le fichier pays.sqlite, regroupant les données des pays d'Europe.
+Le code data_europe permet de créer le fichier pays.sqlite, regroupant les données des pays d'Europe. Le fichier pays.sqlite est déjà créé car la plupart des données ont été rentrées à l'aide du code data_europe, mais certaines modifications (notamment pour la colonne population) ont dû être faites à la main.
 Le code server_europe permet de créer la page du serveur WEB, à l'aide du fichier index.html. 
+
+
 On a accès à la carte des pays en suivant les étapes suivantes :
-  - lancer le code data_europe.py afin de créer la base de données sur DB Browser (en s'assurant que le fichier n'existe pas déjà)
-  (ou alors donner le code server avec le fichier pays.sqlite déjà créé et les modifications faites à la main)
+
+  - enregistrer tous fichiers dans un même dossier et les fichiers leaflet, index.html et les images dans un sous-dossier "client".
   - lancer le code server_europe.py 
   - ouvrir le navigateur et entrer "localhost:8080"
  
  On peut alors observer la carte du monde, regroupant différentes informations concernant les pays d'Europe :
-  - le nom du Pays
+ 
+  - le nom du pays
   - le nom de sa capitale
-  - les coorddonnées géographiques de cette capitale
+  - les coordonnées géographiques de cette capitale
   - la surface du pays
   - la monnaie du pays
   - la population
