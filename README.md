@@ -17,7 +17,7 @@ Le code server_europe permet de créer la page du serveur WEB, à l'aide du fich
 
 On a accès à la carte des pays en suivant les étapes suivantes :
 
-  - enregistrer tous fichiers dans un même dossier et les fichiers leaflet, index.html, style.css et les images en png dans un sous-dossier "client".
+  - enregistrer tous fichiers dans un même dossier.
   - lancer le code server_europe.py 
   - ouvrir le navigateur et entrer "localhost:8080"
  
