@@ -53,11 +53,11 @@ h2 {
 #country_data {
   color: rgba(255,255,255);
   line-height: 1.5em;
-  font-size: 150%;
+  font-size: 120%;
   border: none;
   box-shadow: none;
   background-color: rgba(255,255,255,0.5);
-  border-radius: 30px / 30px;
+  border-radius: 20px / 20px;
   box-shadow: 8px 8px 4px rgba(16,8,0);
   margin-top: 1.33em;
   margin-left: 1.5em;
@@ -72,12 +72,15 @@ h2 {
 	height: 2em;
 }
 
-body {font-family: Rockwell Condensed, sans-serif;}
+
+/* polices de caractères */
+body { font-family: arial, sans-serif; }
+
 
 label {display: block;}
-label span {display: inline-block; width: 5em; height: 1.5em;}
+label span {display: inline-block; width: 2em; height: 1.5em;}
 
-td {height: 0px; width: 700px;}
+td {height: 0px; width: 600px;}
 
 #drapeau {
 	margin-right: 25px;
@@ -86,6 +89,6 @@ td {height: 0px; width: 700px;}
 #map {
   height: 500px;
   width: 700px;
-  border-radius: 30px / 30px;
+  border-radius: 10px / 10px;
   box-shadow: 8px 8px 4px rgba(16,8,0);
 }
