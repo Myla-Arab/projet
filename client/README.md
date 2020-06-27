@@ -4,3 +4,5 @@ Ce dossier contient tous les fichiers nécessaires à la création du site web c
 - leaflet.css
 - leaflet.js
 - europe.jpg
+- dossier flag
+- dossier images
