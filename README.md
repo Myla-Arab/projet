@@ -11,7 +11,7 @@ Lingyu Wang
 
 Description des différents fichiers :
 
-Le code data_europe permet de créer le fichier pays.sqlite, regroupant les données des pays d'Europe. Le fichier pays.sqlite est déjà créé car la plupart des données ont été rentrées à l'aide du code data_europe, mais certaines modifications (notamment pour la colonne population) ont dû être faites à la main.
+Le code data_europe permet de créer le fichier pays.sqlite, regroupant les données des pays d'Europe. Le fichier pays.sqlite est déjà créé car la plupart des données ont été rentrées à l'aide du code data_europe, mais certaines modifications (notamment pour la colonne population) et l'ajout des drapeaux ont dû être faitds à la main.
 Le code server_europe permet de créer la page du serveur WEB, à l'aide du fichier index.html. 
 
 
