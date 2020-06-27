@@ -1,42 +1,91 @@
-﻿/* fond de page */
-body {
-  background-image: linear-gradient(0deg, slateblue, black, black);
+﻿
+.content {
+  position: fixed;
+  z-index: 2;
+  height: 100vh;
+  margin: 0;
+  border: None;
+  box-sizing: None;
+}
+
+.bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  background-image: url(europe.jpg);
+  background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
   color: white;
   height: 100vh;
   margin: 0;
-  /* pour éviter l'ascenseur */
-  border: 1px solid transparent;
+  border: -10px solid transparent;
   box-sizing: border-box;
+  transform: scale(1.1);
 }
 
-/* bandeau de titre */
-h1 { 
-  color: white;
+h1 {
+  color: rgba(255,255,255);
+  font-size: 300%;
+  text-shadow: 0px 0px 0px black;
+  background-color: rgba(255,255,255,0.3);
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  padding-top: 0.3em;
+  padding-left: 2em;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  color: rgba(255,255,255);
+  font-size: 200%;
+  text-shadow: 0px 0px 0px black;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  padding-top: 0.1em;
+  padding-left: 0.1em;
+  padding-bottom: 0.1em;
+}
+
+
+#country_data {
+  color: rgba(255,255,255);
+  line-height: 1.5em;
+  font-size: 150%;
   border: none;
   box-shadow: none;
-  background-color: rgba(255,255,255,0.3);
-  border-top: 3px solid rgba(255,255,255,0.6);
-  border-bottom: 3px solid rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 30px / 30px;
+  box-shadow: 8px 8px 4px rgba(16,8,0);
   margin-top: 1.33em;
-  text-shadow: 3px 3px 3px black;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  margin-left: 1.5em;
   margin-bottom: 1.33em;
+  text-shadow: 0px 0px 0px black;
+  padding-top: 0.5em;
+  padding-left: 1.5em;
+  padding-bottom: 0.5em;
 }
 
-/* contenu de la page */
-body > * {   padding-left: 10px; }
-
-/* polices de caractères */
-body { font-family: Trebuchet MS, sans-serif; }
-
-/* positionnement des champs */
-label { display: block; }
-label span { display: inline-block; width: 5em; height: 1.5em; }
-
-a.delete:hover {
-  color: red;
+#top_name {
+	height: 2em;
 }
-#map { height: 400px; width: 600px; }
+
+body {font-family: Rockwell Condensed, sans-serif;}
+
+label {display: block;}
+label span {display: inline-block; width: 5em; height: 1.5em;}
+
+td {height: 0px; width: 700px;}
+
+#drapeau {
+	margin-right: 25px;
+}
+
+#map {
+  height: 500px;
+  width: 700px;
+  border-radius: 30px / 30px;
+  box-shadow: 8px 8px 4px rgba(16,8,0);
+}
