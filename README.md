@@ -17,17 +17,19 @@ Le code server_europe permet de créer la page du serveur WEB, à l'aide du fich
 
 On a accès à la carte des pays en suivant les étapes suivantes :
 
-  - enregistrer tous les fichiers dans un même dossier.
+  - enregistrer tous les fichiers dans un même dossier
   - lancer le code server_europe.py 
   - ouvrir le navigateur et entrer "localhost:8080"
  
  On peut alors observer la carte du monde, regroupant différentes informations concernant les pays d'Europe :
  
   - le nom du pays
+  - son drapeau
   - le nom de sa capitale
   - les coordonnées géographiques de cette capitale
-  - la surface du pays
+  - la surface du pays en km^2
+  - le nombre d'habitants du pays
   - la monnaie du pays
-  - la population
   
- (ajouter le drapeau)
+  
+ 
