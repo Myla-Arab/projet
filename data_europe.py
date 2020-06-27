@@ -24,6 +24,7 @@ c.execute('''CREATE TABLE "countries" (
     "population"    INTEGER,
     "continent"    TEXT,
     "area" TEXT,
+    "currency" TEXT,
     PRIMARY KEY("wp")
 );''')
 conn.commit()
@@ -123,6 +124,42 @@ def get_population(info,country):
     return population
 
 
+def get_currency(info,country):
+    currency = info['currency']
+    try:
+        m = re.match("\[\[(\D+)\|(\w+)\]\]", currency)
+        currency = m.group(1)
+    except:
+        try:
+            m = re.match("\[\[(\D+)\]\]", currency)
+            currency = m.group(1)
+        except:
+            if country == 'Austria':
+                currency = 'Euro'
+            if country =='Belgium':
+                currency = 'Euro'
+            if country=='Estonia':
+                currency='Euro'
+            if country=='France':
+                currency='Euro'
+            if country=='Germany':
+                currency='Euro'
+            if country=='Greece':
+                currency='Euro'
+            if country=='Republic_of_Ireland':
+                currency='Euro'
+            if country=='Italy':
+                currency='Euro'
+            if country=='Kosovo':
+                currency='Euro'
+            if country=='Latvia':
+                currency='Euro'
+        if country =='Finland':
+            currency = 'Euro'
+    return currency
+
+
+
 def get_coords(wp_info):
 
     # S'il existe des coordonnées dans l'infobox du pays (cas le plus courant)
@@ -150,8 +187,7 @@ def get_coords(wp_info):
         # on convertit en numérique et on renvoie
         if str_coords[0:1] in '0123456789':
             return cv_coords(str_coords)
-
-   
+        
 
 # Conversion d'une chaîne de caractères décrivant une position géographique
 # en coordonnées numériques latitude et longitude
@@ -215,13 +251,14 @@ def cv_coords(str_coords):
 
 def save_country(conn,country,info,continent):
     c = conn.cursor()
-    sql = 'INSERT INTO countries VALUES (?,?,?,?,?,?,?,?)'
+    sql = 'INSERT INTO countries VALUES (?,?,?,?,?,?,?,?,?)'
     name = get_name(info)
     capital = get_capital(info)
     population = get_population(info,country)
     area = get_area(info,country)
     coords = get_coords(info)
-    c.execute(sql,(country ,name, capital, coords['lat'],coords['lon'],population,continent,area))
+    currency = get_currency(info, country)
+    c.execute(sql,(country ,name, capital, coords['lat'],coords['lon'],population,continent,area,currency))
     conn.commit()
 
 
